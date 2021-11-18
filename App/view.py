@@ -24,7 +24,7 @@
  *
  """
 
-
+import time
 import sys
 import config
 import threading
@@ -135,7 +135,11 @@ def thread_cycle():
         elif int(inputs[0]) == 4:
             msg = "Estación Base: BusStopCode-ServiceNo (Ej: 75009-10): "
             initialStation = input(msg)
+            start_time = time.process_time()
             optionFour(cont, initialStation)
+            stop_time = time.process_time()
+            elapsed_time_mseg = round((stop_time - start_time)*1000, 2)
+            print("Tiempo:", elapsed_time_mseg, "mseg")
 
         elif int(inputs[0]) == 5:
             destStation = input("Estación destino (Ej: 15151-10): ")
